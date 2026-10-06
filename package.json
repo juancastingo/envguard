@@ -1,0 +1,51 @@
+{
+  "name": "envguard",
+  "version": "0.1.0",
+  "description": "Zero-dependency schema validation for environment variables with type inference, secret protection, and clear startup errors.",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juancastingo/envguard.git"
+  },
+  "keywords": [
+    "env",
+    "environment",
+    "validation",
+    "schema",
+    "typescript",
+    "secrets",
+    "config"
+  ],
+  "author": "Juan Castiñeira <juancastingo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juancastingo/envguard/issues"
+  },
+  "homepage": "https://github.com/juancastingo/envguard#readme",
+  "devDependencies": {
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "@types/node": "^20.14.0"
+  }
+}
